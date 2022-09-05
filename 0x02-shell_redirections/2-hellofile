@@ -1,2 +1,2 @@
 #1/bin/bash
-less /etc/passwd
+echo $(less /etc/passwd)
