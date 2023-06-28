@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Loops ten times, and displays "bad luck" for the 4th loop iteration
+N=1
+while [ $N -le 10 ]; do
+	if [ $N -eq 4 ]; then
+		echo "bad luck"
+	elif [ $N -eq 8 ]; then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	(( N=N+1 ))
+done
