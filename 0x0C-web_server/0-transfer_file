@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Transfer a file in first argument input to a server using a spcific key
+# Transfer a file in first argument input to a server using a specific key
 if [ "$#" -eq 4 ];
 then
     scp -i "$4" -o StrictHostKeyChecking=no "$1" "$3@$2:~/"
