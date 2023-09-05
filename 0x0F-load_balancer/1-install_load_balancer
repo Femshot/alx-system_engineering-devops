@@ -16,5 +16,3 @@ backend neweb2
     balance roundrobin
     server 157965-web-01 100.26.230.60:80 check
     server 157965-web-02 54.210.109.26:80 check" >> /etc/haproxy/haproxy.cfg
-
-sudo service haproxy restart
