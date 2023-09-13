@@ -3,7 +3,7 @@
 
 sudo apt-get update -y
 sudo apt-get install -y nginx
-sudo chown -R "$USER":"$USER" /var/www
+sudo chown -R "$USER":"$USER" /var/www /etc/nginx/sites-available
 echo "Hello World!" > /var/www/html/index.html
-sudo sed -i "/server_name _;/a rewrite /redirect_me https://www.linkedin.com permanent;" /etc/nginx/sites-enabled/default
+sed -i "/server_name _;/a rewrite /redirect_me https://www.linkedin.com permanent;" /etc/nginx/sites-available/default
 sudo nginx -s reload
