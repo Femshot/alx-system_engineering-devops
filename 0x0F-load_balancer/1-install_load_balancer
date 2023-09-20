@@ -2,9 +2,7 @@
 # Installs and configures HAproxy loadbalancer on a server
 
 sudo  apt-get -y update
-sudo apt-get -y install --no-install-recommends software-properties-common
-sudo add-apt-repository -y ppa:vbernat/haproxy-2.0
-sudo apt-get -y install haproxy=2.0.\*
+sudo apt-get -y install haproxy &>/dev/null
 sudo chown $USER:$USER /etc/haproxy/haproxy.cfg 
 echo "
 frontend neweb
@@ -16,4 +14,4 @@ backend neweb2
     server web-01 35.174.205.36:80 check
     server web-02 54.210.109.26:80 check" >> /etc/haproxy/haproxy.cfg
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
-sudo service haproxy start
+sudo service haproxy start &>/dev/null
