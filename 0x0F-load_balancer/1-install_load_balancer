@@ -16,4 +16,4 @@ backend neweb2
     server web-01 35.174.205.36:80 check
     server web-02 54.210.109.26:80 check" >> /etc/haproxy/haproxy.cfg
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
-sudo service haproxy restart
+sudo service haproxy start
