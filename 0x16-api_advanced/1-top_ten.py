@@ -3,18 +3,21 @@
 from requests import get
 
 
-def number_of_subscribers(subreddit):
+def top_ten(subreddit):
     """ Queries the Reddit API
 
         Prints the titles of the first 10 hot posts
         listed for a given subreddit
     """
     header = {'User-Agent': 'Google Chrome Version 117.0.5938.150'}
-    url = 'https://www.reddit.com/r/{}/hott.json'.format(subreddit)
-    response = get(url, headers=header, allow_redirects=False)
+    params = {'limit': 10}
+    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
+    response = get(url, headers=header, params=params, allow_redirects=False)
     reddits = response.json()
 
     try:
-        return reddits.get('data').get('subscribers')
-    except Exception:
-        return 0
+        children = reddits.get('data').get('children')
+        for i in range(10):
+            print(children[i].get('data').get('title'))
+    except:
+        print('None')
